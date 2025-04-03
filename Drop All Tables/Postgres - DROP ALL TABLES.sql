@@ -1,0 +1,13 @@
+-- O J O --
+
+-- ESTE SCRIPT BORRA TODAS LAS TABLAS E INFORMACIÓN DE LA BASE DE DATOS ACTUAL --
+-- NO SE PUEDE DESHACER / NO EXISTE CTRL Z QUE VALGA --
+
+DO $$ 
+DECLARE 
+    r RECORD;
+BEGIN
+    FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = 'public') LOOP
+        EXECUTE 'DROP TABLE IF EXISTS ' || quote_ident(r.tablename) || ' CASCADE';
+    END LOOP;
+END $$;
