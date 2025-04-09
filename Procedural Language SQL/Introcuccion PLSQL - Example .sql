@@ -9,7 +9,7 @@ DECLARE -- Inicio de la sección declarativa
 fecha timestamp;
 BEGIN -- Inicio del bloque ejecutable
     SELECT sysdate INTO fecha FROM dual; -- Guarda el resultado de sysdate en la variable fecha
-    dbma_output.put_line('La fecha es: ' || fecha); -- Imprime el mensaje con el valor de fecha
+    dbms_output.put_line('La fecha es: ' || fecha); -- Imprime el mensaje con el valor de fecha
 END; -- Fin del bloque ejecutable
 
 -- Ejemplo 2: Inserción de datos
