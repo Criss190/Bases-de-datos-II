@@ -1,4 +1,4 @@
--- IMPRESIÓN DE LA FACTURA: --
+-- PRINT RECEAPT --
 
 SELECT numeroFactura, v.idVendedor, nombreVendedor, c.idCliente, nombreCliente, tipoFactura, fecha, fechaEntrega, subTotal, 
 impuestoLSV, f.totalFactura, f.estadoEntrega
