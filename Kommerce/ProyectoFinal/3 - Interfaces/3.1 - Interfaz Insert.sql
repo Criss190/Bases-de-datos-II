@@ -1,4 +1,5 @@
 -- CLIENTE
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_DIS, NOM_DIS FROM DISTRITO;
 DECLARE
     v_cod_cli   CLIENTE.COD_CLI%TYPE;
@@ -59,6 +60,7 @@ END;
 /
 
 -- PROVEEDOR
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_DIS, NOM_DIS FROM DISTRITO;
 DECLARE
     v_cod_prv PROVEEDOR.COD_PRV%TYPE;
@@ -126,7 +128,9 @@ END;
 /
 
 -- ABASTECIMIENTO
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_PRV, RSO_PRV FROM PROVEEDOR;
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_PRO, DES_PRO FROM PRODUCTO;
 DECLARE
     v_cod_prv ABASTECIMIENTO.COD_PRV%TYPE;
@@ -153,6 +157,7 @@ END;
 /
 
 -- VENDEDOR
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_DIS, NOM_DIS FROM DISTRITO;
 DECLARE
     v_cod_ven VENDEDOR.COD_VEN%TYPE;
@@ -187,7 +192,9 @@ END;
 /
 
 -- FACTURA
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_CLI, RSO_CLI FROM CLIENTE;
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_VEN, NOM_VEN FROM VENDEDOR;
 DECLARE
     v_num_fac FACTURA.NUM_FAC%TYPE;
@@ -222,6 +229,7 @@ END;
 /
 
 -- DETALLE_FACTURA
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_PRO, DES_PRO FROM PRODUCTO;
 DECLARE
     v_num_fac DETALLE_FACTURA.NUM_FAC%TYPE;
@@ -250,6 +258,7 @@ END;
 /
 
 -- ORDEN_COMPRA
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_PRV, RSO_PRV FROM PROVEEDOR;
 DECLARE
     v_num_oco ORDEN_COMPRA.NUM_OCO%TYPE;
@@ -280,6 +289,7 @@ END;
 /
 
 -- DETALLE_COMPRA
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_PRO, DES_PRO FROM PRODUCTO;
 DECLARE
     v_num_oco DETALLE_COMPRA.NUM_OCO%TYPE;
