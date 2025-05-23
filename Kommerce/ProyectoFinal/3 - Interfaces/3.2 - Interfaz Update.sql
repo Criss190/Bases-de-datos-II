@@ -3,6 +3,7 @@
 SELECT * FROM CLIENTE;
 
 DECLARE
+    -- Variables para almacenar valores por defecto
     v_cod_cli   CLIENTE.COD_CLI%TYPE := 'C001'; -- Código del cliente a modificar (OBLIGATORIO)
     v_rso_cli   CLIENTE.RSO_CLI%TYPE;
     v_dir_cli   CLIENTE.DIR_CLI%TYPE;
@@ -116,6 +117,7 @@ END;
 SELECT * FROM DISTRITO;
 
 DECLARE
+    -- Variables para almacenar valores por defecto
     v_cod_dis   DISTRITO.COD_DIS%TYPE := 'D01'; -- Código del distrito a modificar (OBLIGATORIO)
     v_nom_dis   DISTRITO.NOM_DIS%TYPE;
 
@@ -170,6 +172,7 @@ END;
 SELECT * FROM PROVEEDOR;
 
 DECLARE
+    -- Variables para almacenar valores por defecto
     v_cod_prv   PROVEEDOR.COD_PRV%TYPE := 'P001'; -- Código del proveedor a modificar (OBLIGATORIO)
     v_rso_prv   PROVEEDOR.RSO_PRV%TYPE;
     v_dir_prv   PROVEEDOR.DIR_PRV%TYPE;
@@ -265,6 +268,7 @@ END;
 SELECT * FROM PRODUCTO;
 
 DECLARE
+    -- Variables para almacenar valores por defecto
     v_cod_pro   PRODUCTO.COD_PRO%TYPE := 'P001'; -- Código del producto a modificar (OBLIGATORIO)
     v_des_pro   PRODUCTO.DES_PRO%TYPE;
     v_pre_pro   PRODUCTO.PRE_PRO%TYPE;
@@ -359,6 +363,7 @@ END;
 SELECT * FROM ABASTECIMIENTO;
 
 DECLARE
+    -- Variables para almacenar valores por defecto
     v_cod_prv   ABASTECIMIENTO.COD_PRV%TYPE := 'PR01'; -- Código del proveedor a modificar (OBLIGATORIO)
     v_cod_pro   ABASTECIMIENTO.COD_PRO%TYPE := 'P003'; -- Código del producto a modificar (OBLIGATORIO)
     v_pre_aba   ABASTECIMIENTO.PRE_ABA%TYPE;
@@ -441,6 +446,7 @@ END;
 SELECT * FROM VENDEDOR;
 
 DECLARE
+    -- Variables para almacenar valores por defecto
     v_cod_ven   VENDEDOR.COD_VEN%TYPE := 'V01'; -- Código del vendedor a modificar (OBLIGATORIO)
     v_nom_ven   VENDEDOR.NOM_VEN%TYPE;
     v_ape_ven   VENDEDOR.APE_VEN%TYPE;
@@ -546,6 +552,7 @@ SELECT COD_CLI, RSO_CLI FROM CLIENTE;
 SELECT COD_VEN, NOM_VEN, APE_VEN FROM VENDEDOR;
 
 DECLARE
+    -- Variables para almacenar valores por defecto
     v_num_fac   FACTURA.NUM_FAC%TYPE := 'FA001'; -- Número de factura a modificar (OBLIGATORIO)
     v_fec_fac   FACTURA.FEC_FAC%TYPE;
     v_cod_cli   FACTURA.COD_CLI%TYPE;
@@ -663,6 +670,7 @@ END;
 SELECT * FROM DETALLE_FACTURA;
 
 DECLARE
+    -- Variables para almacenar valores por defecto
     v_num_fac   DETALLE_FACTURA.NUM_FAC%TYPE := 'FA001'; -- Número de factura a modificar (OBLIGATORIO)
     v_cod_pro   DETALLE_FACTURA.COD_PRO%TYPE := 'P007'; -- Código del producto a modificar (OBLIGATORIO)
     v_can_pro   DETALLE_FACTURA.CAN_PRO%TYPE;
@@ -750,6 +758,7 @@ END;
 SELECT * FROM ORDEN_COMPRA; -- ESTA TABLA NO TIENE REGISTROS
 
 DECLARE
+    -- Variables para almacenar valores por defecto
     v_num_oco   ORDEN_COMPRA.NUM_OCO%TYPE := 'OC001'; -- Número de orden de compra a modificar (OBLIGATORIO)
     v_fec_oco   ORDEN_COMPRA.FEC_OCO%TYPE;
     v_cod_prv   ORDEN_COMPRA.COD_PRV%TYPE;
@@ -840,6 +849,7 @@ END;
 SELECT * FROM DETALLE_COMPRA; -- ESTA TABLA NO TIENE REGISTROS
 
 DECLARE
+    -- Variables para almacenar valores por defecto
     v_num_oc    DETALLE_COMPRA.NUM_OC%TYPE := 'OC001'; -- Número de orden de compra a modificar (OBLIGATORIO)
     v_cod_pro   DETALLE_COMPRA.COD_PRO%TYPE := 'PR001'; -- Código del producto a modificar (OBLIGATORIO)
     v_can_pro   DETALLE_COMPRA.CAN_PRO%TYPE;
