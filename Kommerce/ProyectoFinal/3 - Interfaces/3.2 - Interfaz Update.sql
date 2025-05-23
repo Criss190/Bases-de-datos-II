@@ -24,17 +24,7 @@ DECLARE
     v_con_cli_actual   CLIENTE.CON_CLI%TYPE;
 
     -- Variables para entrada de nuevos valores
-    v_rsEXCEPTION
-    WHEN e_numero_orden_null THEN
-        DBMS_OUTPUT.PUT_LINE('Error: Debe ingresar el número de orden de compra a modificar');
-    WHEN e_codigo_producto_null THEN
-        DBMS_OUTPUT.PUT_LINE('Error: Debe ingresar el código del producto a modificar');
-    WHEN e_no_existe THEN
-        DBMS_OUTPUT.PUT_LINE('No se realizaron cambios -> Error: No existe un detalle de compra para la orden ' || 
-                            v_num_oc || ' y producto ' || v_cod_pro);
-    WHEN VALUE_ERROR THEN
-        DBMS_OUTPUT.PUT_LINE('No se realizaron cambios -> Error: Valor numérico inválido en cantidad, precio unitario o monto.');
-    WHEN OTHERS THENvo   VARCHAR2(30);
+    v_rso_cli_nuevo   VARCHAR2(30);
     v_dir_cli_nuevo   VARCHAR2(100);
     v_tlf_cli_nuevo   VARCHAR2(9);
     v_ruc_cli_nuevo   VARCHAR2(11);
@@ -873,6 +863,7 @@ DECLARE
     e_no_existe EXCEPTION;
     e_numero_orden_null EXCEPTION;
     e_codigo_producto_null EXCEPTION;
+    
 BEGIN
     -- Validar que se hayan ingresado los códigos
     IF v_num_oc IS NULL OR v_num_oc = '' THEN
