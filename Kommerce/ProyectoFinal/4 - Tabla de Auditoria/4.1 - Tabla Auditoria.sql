@@ -31,10 +31,3 @@ BEGIN
     COMMIT;
 END;
 /
-
--- =========================================
--- EJEMPLOS DE USO DEL PROCEDIMIENTO DE AUDITORÍA
--- =========================================
-REGISTRAR_AUDITORIA('CLIENTE', 'INSERT', 'Se insertó cliente con COD_CLI=' || v_cod_cli);
-REGISTRAR_AUDITORIA('CLIENTE', 'UPDATE', 'Se actualizó cliente con COD_CLI=' || v_cod_cli);
-REGISTRAR_AUDITORIA('CLIENTE', 'DELETE', 'Se eliminó cliente con COD_CLI=' || v_cod_cli);

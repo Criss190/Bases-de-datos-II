@@ -1,13 +1,21 @@
--- CLIENTE
+-- =========================================
+-- INTERFAZ DE ELIMINACIÓN DE DATOS
+-- Archivo: 3.3 - Interfaz Delete.sql
+-- Descripción: Bloques PL/SQL para eliminar registros y sus dependencias en las tablas principales
+-- =========================================
+
+-- =========================================
+-- SECCIÓN: CLIENTE
+-- =========================================
 -- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT * FROM CLIENTE;
 
--- SELECTs de verificacion después de eliminados.
-SELECT * FROM FACTURA WHERE COD_CLI = 'X'; -- <-- Cambia la X por el código del cliente que deseas verificar
+-- SELECTs de verificación después de eliminados
+SELECT * FROM FACTURA WHERE COD_CLI = 'X'; -- Cambia la X por el código del cliente
 SELECT df.*
 FROM DETALLE_FACTURA df
 JOIN FACTURA f ON f.NUM_FAC = df.NUM_FAC
-WHERE f.COD_CLI = 'X'; -- <-- Cambia la X por el código del cliente que deseas verificar
+WHERE f.COD_CLI = 'X'; -- Cambia la X por el código del cliente
 
 DECLARE
     v_cod_cli       CLIENTE.COD_CLI%TYPE;     -- Código del cliente a eliminar
@@ -52,14 +60,16 @@ EXCEPTION
 END;
 /
 
--- DISTRITO
+-- =========================================
+-- SECCIÓN: DISTRITO
+-- =========================================
 -- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT * FROM DISTRITO;
 
--- SELECTs de verificacion después de eliminados.
-SELECT * FROM CLIENTE WHERE COD_DIS = 'X'; -- <-- Cambia la X por el código del distrito que deseas verificar
-SELECT * FROM PROVEEDOR WHERE COD_DIS = 'X'; -- <-- Cambia la X por el código del distrito que deseas verificar
-SELECT * FROM VENDEDOR WHERE COD_DIS = 'X'; -- <-- Cambia la X por el código del distrito que deseas verificar
+-- SELECTs de verificación después de eliminados
+SELECT * FROM CLIENTE WHERE COD_DIS = 'X';
+SELECT * FROM PROVEEDOR WHERE COD_DIS = 'X';
+SELECT * FROM VENDEDOR WHERE COD_DIS = 'X';
 
 DECLARE
     v_cod_dis       DISTRITO.COD_DIS%TYPE;    -- Código del distrito a eliminar
@@ -128,13 +138,15 @@ EXCEPTION
 END;
 /
 
--- PROVEEDOR
+-- =========================================
+-- SECCIÓN: PROVEEDOR
+-- =========================================
 -- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT * FROM PROVEEDOR;
 
--- SELECTs de verificacion después de eliminados.
-SELECT * FROM ORDEN_COMPRA WHERE COD_PRV = 'X'; -- <-- Cambia la X por el código del proveedor que deseas verificar
-SELECT * FROM ABASTECIMIENTO WHERE COD_PRV = 'X'; -- <-- Cambia la X por el código del proveedor que deseas verificar
+-- SELECTs de verificación después de eliminados
+SELECT * FROM ORDEN_COMPRA WHERE COD_PRV = 'X';
+SELECT * FROM ABASTECIMIENTO WHERE COD_PRV = 'X';
 
 DECLARE
     v_cod_prv       PROVEEDOR.COD_PRV%TYPE;   -- Código del proveedor a eliminar
@@ -180,14 +192,16 @@ EXCEPTION
 END;
 /
 
--- PRODUCTO
+-- =========================================
+-- SECCIÓN: PRODUCTO
+-- =========================================
 -- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT * FROM PRODUCTO;
 
--- SELECTs de verificacion después de eliminados.
-SELECT * FROM DETALLE_FACTURA WHERE COD_PRO = 'X'; -- <-- Cambia la X por el código del producto que deseas verificar
-SELECT * FROM DETALLE_COMPRA WHERE COD_PRO = 'X'; -- <-- Cambia la X por el código del producto que deseas verificar
-SELECT * FROM ABASTECIMIENTO WHERE COD_PRO = 'X'; -- <-- Cambia la X por el código del producto que deseas verificar
+-- SELECTs de verificación después de eliminados
+SELECT * FROM DETALLE_FACTURA WHERE COD_PRO = 'X';
+SELECT * FROM DETALLE_COMPRA WHERE COD_PRO = 'X';
+SELECT * FROM ABASTECIMIENTO WHERE COD_PRO = 'X';
 
 DECLARE
     v_cod_pro       PRODUCTO.COD_PRO%TYPE;    -- Código del producto a eliminar
@@ -232,7 +246,9 @@ EXCEPTION
 END;
 /
 
--- ABASTECIMIENTO
+-- =========================================
+-- SECCIÓN: ABASTECIMIENTO
+-- =========================================
 -- Se debe correr estos SELECTs antes de ejecutar el bloque PL/SQL correspondiente
 SELECT * FROM ABASTECIMIENTO;
 SELECT * FROM PROVEEDOR;
@@ -276,13 +292,15 @@ EXCEPTION
 END;
 /
 
--- VENDEDOR
+-- =========================================
+-- SECCIÓN: VENDEDOR
+-- =========================================
 -- Se debe correr estos SELECTs antes de ejecutar el bloque PL/SQL correspondiente
 SELECT * FROM VENDEDOR;
 SELECT * FROM FACTURA;
 
--- SELECTs de verificacion después de eliminados.
-SELECT * FROM FACTURA WHERE COD_VEN = 'X'; -- <-- Cambia la X por el código del vendedor que deseas verificar
+-- SELECTs de verificación después de eliminados
+SELECT * FROM FACTURA WHERE COD_VEN = 'X';
 
 DECLARE
     v_cod_ven       VENDEDOR.COD_VEN%TYPE;    -- Código del vendedor a eliminar
@@ -325,13 +343,15 @@ EXCEPTION
 END;
 /
 
--- FACTURA
+-- =========================================
+-- SECCIÓN: FACTURA
+-- =========================================
 -- Se debe correr estos SELECTs antes de ejecutar el bloque PL/SQL correspondiente
 SELECT * FROM FACTURA;
 SELECT * FROM DETALLE_FACTURA;
 
--- SELECTs de verificacion después de eliminados.
-SELECT * FROM DETALLE_FACTURA WHERE NUM_FAC = 'X'; -- <-- Cambia la X por el número de factura que deseas verificar
+-- SELECTs de verificación después de eliminados
+SELECT * FROM DETALLE_FACTURA WHERE NUM_FAC = 'X';
 
 DECLARE
     v_num_fac       FACTURA.NUM_FAC%TYPE;     -- Número de factura a eliminar
@@ -370,14 +390,16 @@ EXCEPTION
 END;
 /
 
--- DETALLE_FACTURA
+-- =========================================
+-- SECCIÓN: DETALLE_FACTURA
+-- =========================================
 -- Se debe correr estos SELECTs antes de ejecutar el bloque PL/SQL correspondiente
 SELECT * FROM DETALLE_FACTURA;
 SELECT * FROM PRODUCTO;
 
--- SELECTs de verificacion después de eliminados.
-SELECT * FROM PRODUCTO WHERE COD_PRO = 'X'; -- <-- Cambia la X por el código del producto que deseas verificar
-SELECT * FROM DETALLE_FACTURA WHERE NUM_FAC = 'X'; -- <-- Cambia la X por el número de factura que deseas verificar
+-- SELECTs de verificación después de eliminados
+SELECT * FROM PRODUCTO WHERE COD_PRO = 'X';
+SELECT * FROM DETALLE_FACTURA WHERE NUM_FAC = 'X';
 
 DECLARE
     v_num_fac       DETALLE_FACTURA.NUM_FAC%TYPE;  -- Número de factura del detalle a eliminar
@@ -417,13 +439,15 @@ EXCEPTION
 END;
 /
 
--- ORDEN_COMPRA
+-- =========================================
+-- SECCIÓN: ORDEN_COMPRA
+-- =========================================
 -- Se debe correr estos SELECTs antes de ejecutar el bloque PL/SQL correspondiente
 SELECT * FROM ORDEN_COMPRA;
 SELECT * FROM DETALLE_COMPRA;
 
--- SELECTs de verificacion después de eliminados.
-SELECT * FROM DETALLE_COMPRA WHERE NUM_OCO = 'X'; -- <-- Cambia la X por el número de orden de compra que deseas verificar
+-- SELECTs de verificación después de eliminados
+SELECT * FROM DETALLE_COMPRA WHERE NUM_OCO = 'X';
 
 DECLARE
     v_num_oco       ORDEN_COMPRA.NUM_OCO%TYPE;  -- Número de orden de compra a eliminar
@@ -462,13 +486,15 @@ EXCEPTION
 END;
 /
 
--- DETALLE_COMPRA
+-- =========================================
+-- SECCIÓN: DETALLE_COMPRA
+-- =========================================
 -- Se debe correr estos SELECTs antes de ejecutar el bloque PL/SQL correspondiente
 SELECT * FROM DETALLE_COMPRA;
 SELECT * FROM PRODUCTO;
 
--- SELECTs de verificacion después de eliminados.
-SELECT * FROM PRODUCTO WHERE COD_PRO = 'X'; -- <-- Cambia la X por el código del producto que deseas verificar
+-- SELECTs de verificación después de eliminados
+SELECT * FROM PRODUCTO WHERE COD_PRO = 'X';
 
 DECLARE
     v_num_oco       DETALLE_COMPRA.NUM_OCO%TYPE;  -- Número de orden de compra del detalle a eliminar

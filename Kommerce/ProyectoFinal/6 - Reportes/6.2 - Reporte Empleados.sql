@@ -1,3 +1,12 @@
+-- =========================================
+-- REPORTE DE EMPLEADOS CON MENOR VENTA
+-- Archivo: 6.2 - Reporte Empleados.sql
+-- Descripción: Consulta para obtener los 3 empleados con menor monto total de ventas
+-- =========================================
+
+-- =========================================
+-- CONSULTA: TOP 3 EMPLEADOS CON MENOR VENTA
+-- =========================================
 SELECT * FROM (
     SELECT 
         v.COD_VEN,
@@ -10,3 +19,4 @@ SELECT * FROM (
     ORDER BY TOTAL_VENTAS ASC
 )
 WHERE ROWNUM <= 3;
+/

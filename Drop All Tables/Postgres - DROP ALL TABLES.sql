@@ -1,8 +1,13 @@
--- O J O --
+-- =========================================
+-- ATENCIÓN: ELIMINACIÓN MASIVA DE TABLAS EN POSTGRESQL
+-- Archivo: Postgres - DROP ALL TABLES.sql
+-- Descripción: Este script elimina todas las tablas y su información de la base de datos actual.
+-- ADVERTENCIA: Esta acción es irreversible. Úselo con extrema precaución.
+-- =========================================
 
--- ESTE SCRIPT BORRA TODAS LAS TABLAS E INFORMACIÓN DE LA BASE DE DATOS ACTUAL --
--- NO SE PUEDE DESHACER / NO EXISTE CTRL Z QUE VALGA --
-
+-- =========================================
+-- BLOQUE ANÓNIMO PARA ELIMINAR TODAS LAS TABLAS DEL ESQUEMA 'public'
+-- =========================================
 DO $$ 
 DECLARE 
     r RECORD;
@@ -11,3 +16,4 @@ BEGIN
         EXECUTE 'DROP TABLE IF EXISTS ' || quote_ident(r.tablename) || ' CASCADE';
     END LOOP;
 END $$;
+/
