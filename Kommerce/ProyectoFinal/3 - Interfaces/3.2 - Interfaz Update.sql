@@ -1,5 +1,13 @@
--- CLIENTE
--- Se debe correr estos SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
+-- =========================================
+-- INTERFAZ DE ACTUALIZACIÓN DE DATOS
+-- Archivo: 3.2 - Interfaz Update.sql
+-- Descripción: Bloques PL/SQL para actualizar registros en las tablas principales
+-- =========================================
+
+-- =========================================
+-- SECCIÓN: CLIENTE
+-- =========================================
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
 SELECT * FROM CLIENTE;
 
 DECLARE
@@ -112,8 +120,10 @@ EXCEPTION
 END;
 /
 
--- DISTRITO
--- Se debe correr estos SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
+-- =========================================
+-- SECCIÓN: DISTRITO
+-- =========================================
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
 SELECT * FROM DISTRITO;
 
 DECLARE
@@ -167,8 +177,10 @@ EXCEPTION
 END;
 /
 
--- PROVEEDOR
--- Se debe correr estos SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
+-- =========================================
+-- SECCIÓN: PROVEEDOR
+-- =========================================
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
 SELECT * FROM PROVEEDOR;
 
 DECLARE
@@ -263,8 +275,10 @@ EXCEPTION
 END;
 /
 
--- PRODUCTO
--- Se debe correr estos SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
+-- =========================================
+-- SECCIÓN: PRODUCTO
+-- =========================================
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
 SELECT * FROM PRODUCTO;
 
 DECLARE
@@ -358,8 +372,10 @@ EXCEPTION
 END;
 /
 
--- ABASTECIMIENTO
--- Se debe correr estos SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
+-- =========================================
+-- SECCIÓN: ABASTECIMIENTO
+-- =========================================
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
 SELECT * FROM ABASTECIMIENTO;
 
 DECLARE
@@ -441,8 +457,10 @@ EXCEPTION
 END;
 /
 
--- VENDEDOR
--- Se debe correr estos SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
+-- =========================================
+-- SECCIÓN: VENDEDOR
+-- =========================================
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
 SELECT * FROM VENDEDOR;
 
 DECLARE
@@ -545,7 +563,9 @@ EXCEPTION
 END;
 /
 
--- FACTURA
+-- =========================================
+-- SECCIÓN: FACTURA
+-- =========================================
 -- Se debe correr estos SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
 SELECT * FROM FACTURA;
 SELECT COD_CLI, RSO_CLI FROM CLIENTE;
@@ -665,8 +685,10 @@ EXCEPTION
 END;
 /
 
--- DETALLE_FACTURA
--- Se debe correr estos SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
+-- =========================================
+-- SECCIÓN: DETALLE_FACTURA
+-- =========================================
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
 SELECT * FROM DETALLE_FACTURA;
 
 DECLARE
@@ -753,8 +775,10 @@ EXCEPTION
 END;
 /
 
--- ORDEN_COMPRA
--- Se debe correr estos SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
+-- =========================================
+-- SECCIÓN: ORDEN_COMPRA
+-- =========================================
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
 SELECT * FROM ORDEN_COMPRA; -- ESTA TABLA NO TIENE REGISTROS
 
 DECLARE
@@ -844,8 +868,10 @@ EXCEPTION
 END;
 /
 
--- DETALLE_COMPRA
--- Se debe correr estos SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
+-- =========================================
+-- SECCIÓN: DETALLE_COMPRA
+-- =========================================
+-- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente para ver los datos
 SELECT * FROM DETALLE_COMPRA; -- ESTA TABLA NO TIENE REGISTROS
 
 DECLARE

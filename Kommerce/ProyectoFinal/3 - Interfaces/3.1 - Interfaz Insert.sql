@@ -1,7 +1,16 @@
--- CLIENTE
+-- =========================================
+-- INTERFAZ DE INSERCIÓN DE DATOS
+-- Archivo: 3.1 - Interfaz Insert.sql
+-- Descripción: Bloques PL/SQL para insertar registros en las tablas principales
+-- =========================================
+
+-- =========================================
+-- SECCIÓN: CLIENTE
+-- =========================================
 -- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_DIS, NOM_DIS FROM DISTRITO;
 DECLARE
+    -- Declaración de variables para CLIENTE
     v_cod_cli   CLIENTE.COD_CLI%TYPE;
     v_rso_cli   CLIENTE.RSO_CLI%TYPE;
     v_dir_cli   CLIENTE.DIR_CLI%TYPE;
@@ -13,6 +22,7 @@ DECLARE
     v_con_cli   CLIENTE.CON_CLI%TYPE;
     e_dato_faltante EXCEPTION;
 BEGIN
+    -- Asignación de valores (reemplazar por los datos reales)
     v_cod_cli :=: "Código del cliente";
     v_rso_cli :=: "Razón social";
     v_dir_cli :=: "Dirección";
@@ -22,13 +32,12 @@ BEGIN
     v_fec_reg :=: "Fecha de registro";
     v_tip_cli :=: "Tipo de cliente";
     v_con_cli :=: "Contacto";
+    -- Validación de datos obligatorios
     IF v_cod_cli IS NULL OR v_rso_cli IS NULL OR v_dir_cli IS NULL OR v_tlf_cli IS NULL OR v_ruc_cli IS NULL OR v_cod_dis IS NULL OR v_fec_reg IS NULL OR v_tip_cli IS NULL OR v_con_cli IS NULL THEN
-        -- Lanza excepción si falta un dato obligatorio
         RAISE e_dato_faltante;
     END IF;
     INSERT INTO CLIENTE (COD_CLI, RSO_CLI, DIR_CLI, TLF_CLI, RUC_CLI, COD_DIS, FEC_REG, TIP_CLI, CON_CLI)
     VALUES (v_cod_cli, v_rso_cli, v_dir_cli, v_tlf_cli, v_ruc_cli, v_cod_dis, v_fec_reg, v_tip_cli, v_con_cli);
-    -- Guarda los cambios de forma permanente
     COMMIT;
     DBMS_OUTPUT.PUT_LINE('Cliente insertado correctamente.');
 EXCEPTION
@@ -37,8 +46,11 @@ EXCEPTION
 END;
 /
 
--- DISTRITO
+-- =========================================
+-- SECCIÓN: DISTRITO
+-- =========================================
 DECLARE
+    -- Declaración de variables para DISTRITO
     v_cod_dis DISTRITO.COD_DIS%TYPE;
     v_nom_dis DISTRITO.NOM_DIS%TYPE;
     e_dato_faltante EXCEPTION;
@@ -59,10 +71,13 @@ EXCEPTION
 END;
 /
 
--- PROVEEDOR
+-- =========================================
+-- SECCIÓN: PROVEEDOR
+-- =========================================
 -- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_DIS, NOM_DIS FROM DISTRITO;
 DECLARE
+    -- Declaración de variables para PROVEEDOR
     v_cod_prv PROVEEDOR.COD_PRV%TYPE;
     v_rso_prv PROVEEDOR.RSO_PRV%TYPE;
     v_dir_prv PROVEEDOR.DIR_PRV%TYPE;
@@ -71,12 +86,14 @@ DECLARE
     v_rep_prv PROVEEDOR.REP_PRV%TYPE;
     e_dato_faltante EXCEPTION;
 BEGIN
+    -- Asignación de valores (reemplazar por los datos reales)
     v_cod_prv :=: "Código de proveedor";
     v_rso_prv :=: "Razón social";
     v_dir_prv :=: "Dirección";
     v_tel_prv :=: "Teléfono";
     v_cod_dis :=: "Código de distrito";
     v_rep_prv :=: "Representante";
+    -- Validación de datos obligatorios
     IF v_cod_prv IS NULL OR v_rso_prv IS NULL OR v_dir_prv IS NULL OR v_tel_prv IS NULL OR v_cod_dis IS NULL OR v_rep_prv IS NULL THEN
         -- Lanza excepción si falta un dato obligatorio
         RAISE e_dato_faltante;
@@ -92,8 +109,11 @@ EXCEPTION
 END;
 /
 
--- PRODUCTO
+-- =========================================
+-- SECCIÓN: PRODUCTO
+-- =========================================
 DECLARE
+    -- Declaración de variables para PRODUCTO
     v_cod_pro PRODUCTO.COD_PRO%TYPE;
     v_des_pro PRODUCTO.DES_PRO%TYPE;
     v_pre_pro PRODUCTO.PRE_PRO%TYPE;
@@ -104,6 +124,7 @@ DECLARE
     v_imp_pro PRODUCTO.IMP_PRO%TYPE;
     e_dato_faltante EXCEPTION;
 BEGIN
+    -- Asignación de valores (reemplazar por los datos reales)
     v_cod_pro :=: "Código de producto";
     v_des_pro :=: "Descripción";
     v_pre_pro :=: "Precio";
@@ -112,6 +133,7 @@ BEGIN
     v_unl_pro :=: "Unidad de lote";
     v_lin_pro :=: "Línea de producto";
     v_imp_pro :=: "Impuesto";
+    -- Validación de datos obligatorios
     IF v_cod_pro IS NULL OR v_des_pro IS NULL OR v_pre_pro IS NULL OR v_sac_pro IS NULL OR v_sml_pro IS NULL OR v_unl_pro IS NULL OR v_lin_pro IS NULL OR v_imp_pro IS NULL THEN
         -- Lanza excepción si falta un dato obligatorio
         RAISE e_dato_faltante;
@@ -127,20 +149,25 @@ EXCEPTION
 END;
 /
 
--- ABASTECIMIENTO
+-- =========================================
+-- SECCIÓN: ABASTECIMIENTO
+-- =========================================
 -- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_PRV, RSO_PRV FROM PROVEEDOR;
 -- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_PRO, DES_PRO FROM PRODUCTO;
 DECLARE
+    -- Declaración de variables para ABASTECIMIENTO
     v_cod_prv ABASTECIMIENTO.COD_PRV%TYPE;
     v_cod_pro ABASTECIMIENTO.COD_PRO%TYPE;
     v_pre_aba ABASTECIMIENTO.PRE_ABA%TYPE;
     e_dato_faltante EXCEPTION;
 BEGIN
+    -- Asignación de valores (reemplazar por los datos reales)
     v_cod_prv :=: "Código de proveedor";
     v_cod_pro :=: "Código de producto";
     v_pre_aba :=: "Precio de abastecimiento";
+    -- Validación de datos obligatorios
     IF v_cod_prv IS NULL OR v_cod_pro IS NULL OR v_pre_aba IS NULL THEN
         -- Lanza excepción si falta un dato obligatorio
         RAISE e_dato_faltante;
@@ -156,10 +183,13 @@ EXCEPTION
 END;
 /
 
--- VENDEDOR
+-- =========================================
+-- SECCIÓN: VENDEDOR
+-- =========================================
 -- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_DIS, NOM_DIS FROM DISTRITO;
 DECLARE
+    -- Declaración de variables para VENDEDOR
     v_cod_ven VENDEDOR.COD_VEN%TYPE;
     v_nom_ven VENDEDOR.NOM_VEN%TYPE;
     v_ape_ven VENDEDOR.APE_VEN%TYPE;
@@ -169,6 +199,7 @@ DECLARE
     v_cod_dis VENDEDOR.COD_DIS%TYPE;
     e_dato_faltante EXCEPTION;
 BEGIN
+    -- Asignación de valores (reemplazar por los datos reales)
     v_cod_ven :=: "Código de vendedor";
     v_nom_ven :=: "Nombre";
     v_ape_ven :=: "Apellido";
@@ -176,6 +207,7 @@ BEGIN
     v_fin_ven :=: "Fecha de ingreso";
     v_tip_ven :=: "Tipo de vendedor";
     v_cod_dis :=: "Código de distrito";
+    -- Validación de datos obligatorios
     IF v_cod_ven IS NULL OR v_nom_ven IS NULL OR v_ape_ven IS NULL OR v_sue_ven IS NULL OR v_fin_ven IS NULL OR v_tip_ven IS NULL OR v_cod_dis IS NULL THEN
         -- Lanza excepción si falta un dato obligatorio
         RAISE e_dato_faltante;
@@ -191,12 +223,15 @@ EXCEPTION
 END;
 /
 
--- FACTURA
+-- =========================================
+-- SECCIÓN: FACTURA
+-- =========================================
 -- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_CLI, RSO_CLI FROM CLIENTE;
 -- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_VEN, NOM_VEN FROM VENDEDOR;
 DECLARE
+    -- Declaración de variables para FACTURA
     v_num_fac FACTURA.NUM_FAC%TYPE;
     v_fec_fac FACTURA.FEC_FAC%TYPE;
     v_cod_cli FACTURA.COD_CLI%TYPE;
@@ -206,6 +241,7 @@ DECLARE
     v_por_jgv FACTURA.POR_JGV%TYPE;
     e_dato_faltante EXCEPTION;
 BEGIN
+    -- Asignación de valores (reemplazar por los datos reales)
     v_num_fac :=: "Número de factura";
     v_fec_fac :=: "Fecha de factura";
     v_cod_cli :=: "Código de cliente";
@@ -213,6 +249,7 @@ BEGIN
     v_est_fac :=: "Estado de factura";
     v_cod_ven :=: "Código de vendedor";
     v_por_jgv :=: "Porcentaje JGV";
+    -- Validación de datos obligatorios
     IF v_num_fac IS NULL OR v_fec_fac IS NULL OR v_cod_cli IS NULL OR v_fec_can IS NULL OR v_est_fac IS NULL OR v_cod_ven IS NULL OR v_por_jgv IS NULL THEN
         -- Lanza excepción si falta un dato obligatorio
         RAISE e_dato_faltante;
@@ -228,20 +265,25 @@ EXCEPTION
 END;
 /
 
--- DETALLE_FACTURA
+-- =========================================
+-- SECCIÓN: DETALLE_FACTURA
+-- =========================================
 -- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_PRO, DES_PRO FROM PRODUCTO;
 DECLARE
+    -- Declaración de variables para DETALLE_FACTURA
     v_num_fac DETALLE_FACTURA.NUM_FAC%TYPE;
     v_cod_pro DETALLE_FACTURA.COD_PRO%TYPE;
     v_can_ven DETALLE_FACTURA.CAN_VEN%TYPE;
     v_pre_ven DETALLE_FACTURA.PRE_VEN%TYPE;
     e_dato_faltante EXCEPTION;
 BEGIN
+    -- Asignación de valores (reemplazar por los datos reales)
     v_num_fac :=: "Número de factura";
     v_cod_pro :=: "Código de producto";
     v_can_ven :=: "Cantidad vendida";
     v_pre_ven :=: "Precio de venta";
+    -- Validación de datos obligatorios
     IF v_num_fac IS NULL OR v_cod_pro IS NULL OR v_can_ven IS NULL OR v_pre_ven IS NULL THEN
         -- Lanza excepción si falta un dato obligatorio
         RAISE e_dato_faltante;
@@ -257,38 +299,9 @@ EXCEPTION
 END;
 /
 
--- ORDEN_COMPRA
--- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
-SELECT COD_PRV, RSO_PRV FROM PROVEEDOR;
-DECLARE
-    v_num_oco ORDEN_COMPRA.NUM_OCO%TYPE;
-    v_fec_oco ORDEN_COMPRA.FEC_OCO%TYPE;
-    v_cod_prv ORDEN_COMPRA.COD_PRV%TYPE;
-    v_fat_oco ORDEN_COMPRA.FAT_OCO%TYPE;
-    v_est_oco ORDEN_COMPRA.EST_OCO%TYPE;
-    e_dato_faltante EXCEPTION;
-BEGIN
-    v_num_oco :=: "Número de orden de compra";
-    v_fec_oco :=: "Fecha de orden de compra";
-    v_cod_prv :=: "Código de proveedor";
-    v_fat_oco :=: "Fecha de atención";
-    v_est_oco :=: "Estado de orden de compra";
-    IF v_num_oco IS NULL OR v_fec_oco IS NULL OR v_cod_prv IS NULL OR v_fat_oco IS NULL OR v_est_oco IS NULL THEN
-        -- Lanza excepción si falta un dato obligatorio
-        RAISE e_dato_faltante;
-    END IF;
-    INSERT INTO ORDEN_COMPRA (NUM_OCO, FEC_OCO, COD_PRV, FAT_OCO, EST_OCO)
-    VALUES (v_num_oco, v_fec_oco, v_cod_prv, v_fat_oco, v_est_oco);
-    -- Guarda los cambios de forma permanente
-    COMMIT;
-    DBMS_OUTPUT.PUT_LINE('Orden de compra insertada correctamente.');
-EXCEPTION
-    WHEN e_dato_faltante THEN
-        DBMS_OUTPUT.PUT_LINE('Error: Debe ingresar todos los datos. No se realizó la inserción.');
-END;
-/
-
--- DETALLE_COMPRA
+-- =========================================
+-- SECCIÓN: DETALLE_COMPRA
+-- =========================================
 -- Se debe correr este SELECT antes de ejecutar el bloque PL/SQL correspondiente
 SELECT COD_PRO, DES_PRO FROM PRODUCTO;
 DECLARE
