@@ -23,13 +23,13 @@ DECLARE
     e_dato_faltante EXCEPTION;
 BEGIN
     -- Asignación de valores (reemplazar por los datos reales)
-    v_cod_cli := :Código_del_cliente;
-    v_rso_cli := :Razón_social;
-    v_dir_cli := :Dirección;
-    v_tlf_cli := :Teléfono;
+    v_cod_cli := :Codigo_del_cliente;
+    v_rso_cli := :Razon_social;
+    v_dir_cli := :Direccion;
+    v_tlf_cli := :Telefono;
     v_ruc_cli := :RUC;
-    v_cod_dis := :Código_de_distrito;
-    v_fec_reg := :Fecha_de_registro;
+    v_cod_dis := :Codigo_de_distrito;
+    v_fec_reg := TO_DATE(:Fecha_de_registro, 'DD/MM/YYYY');
     v_tip_cli := :Tipo_de_cliente;
     v_con_cli := :Contacto;
     -- Validación de datos obligatorios
@@ -55,7 +55,7 @@ DECLARE
     v_nom_dis DISTRITO.NOM_DIS%TYPE;
     e_dato_faltante EXCEPTION;
 BEGIN
-    v_cod_dis := :Código_de_distrito;
+    v_cod_dis := :Codigo_de_distrito;
     v_nom_dis := :Nombre_del_distrito;
     IF v_cod_dis IS NULL OR v_nom_dis IS NULL THEN
         -- Lanza excepción si falta un dato obligatorio
@@ -87,11 +87,11 @@ DECLARE
     e_dato_faltante EXCEPTION;
 BEGIN
     -- Asignación de valores (reemplazar por los datos reales)
-    v_cod_prv := :Código_de_proveedor;
-    v_rso_prv := :Razón_social;
-    v_dir_prv := :Dirección;
-    v_tel_prv := :Teléfono;
-    v_cod_dis := :Código_de_distrito;
+    v_cod_prv := :Codigo_de_proveedor;
+    v_rso_prv := :Razon_social;
+    v_dir_prv := :Direccion;
+    v_tel_prv := :Telefono;
+    v_cod_dis := :Codigo_de_distrito;
     v_rep_prv := :Representante;
     -- Validación de datos obligatorios
     IF v_cod_prv IS NULL OR v_rso_prv IS NULL OR v_dir_prv IS NULL OR v_tel_prv IS NULL OR v_cod_dis IS NULL OR v_rep_prv IS NULL THEN
@@ -125,13 +125,13 @@ DECLARE
     e_dato_faltante EXCEPTION;
 BEGIN
     -- Asignación de valores (reemplazar por los datos reales)
-    v_cod_pro := :Código_de_producto;
-    v_des_pro := :Descripción;
+    v_cod_pro := :Codigo_de_producto;
+    v_des_pro := :Descripcion;
     v_pre_pro := :Precio;
     v_sac_pro := :Stock_actual;
-    v_sml_pro := :Stock_mínimo;
+    v_sml_pro := :Stock_minimo;
     v_unl_pro := :Unidad_de_lote;
-    v_lin_pro := :Línea_de_producto;
+    v_lin_pro := :Linea_de_producto;
     v_imp_pro := :Impuesto;
     -- Validación de datos obligatorios
     IF v_cod_pro IS NULL OR v_des_pro IS NULL OR v_pre_pro IS NULL OR v_sac_pro IS NULL OR v_sml_pro IS NULL OR v_unl_pro IS NULL OR v_lin_pro IS NULL OR v_imp_pro IS NULL THEN
@@ -164,8 +164,8 @@ DECLARE
     e_dato_faltante EXCEPTION;
 BEGIN
     -- Asignación de valores (reemplazar por los datos reales)
-    v_cod_prv := :Código_de_proveedor;
-    v_cod_pro := :Código_de_producto;
+    v_cod_prv := :Codigo_de_proveedor;
+    v_cod_pro := :Codigo_de_producto;
     v_pre_aba := :Precio_de_abastecimiento;
     -- Validación de datos obligatorios
     IF v_cod_prv IS NULL OR v_cod_pro IS NULL OR v_pre_aba IS NULL THEN
@@ -200,13 +200,13 @@ DECLARE
     e_dato_faltante EXCEPTION;
 BEGIN
     -- Asignación de valores (reemplazar por los datos reales)
-    v_cod_ven := :Código_de_vendedor;
+    v_cod_ven := :Codigo_de_vendedor;
     v_nom_ven := :Nombre;
     v_ape_ven := :Apellido;
     v_sue_ven := :Sueldo;
-    v_fin_ven := :Fecha_de_ingreso;
+    v_fin_ven := TO_DATE(:Fecha_de_ingreso, 'DD/MM/YYYY');
     v_tip_ven := :Tipo_de_vendedor;
-    v_cod_dis := :Código_de_distrito;
+    v_cod_dis := :Codigo_de_distrito;
     -- Validación de datos obligatorios
     IF v_cod_ven IS NULL OR v_nom_ven IS NULL OR v_ape_ven IS NULL OR v_sue_ven IS NULL OR v_fin_ven IS NULL OR v_tip_ven IS NULL OR v_cod_dis IS NULL THEN
         -- Lanza excepción si falta un dato obligatorio
@@ -242,12 +242,12 @@ DECLARE
     e_dato_faltante EXCEPTION;
 BEGIN
     -- Asignación de valores (reemplazar por los datos reales)
-    v_num_fac := :Número_de_factura;
-    v_fec_fac := :Fecha_de_factura;
-    v_cod_cli := :Código_de_cliente;
-    v_fec_can := :Fecha_de_cancelación;
+    v_num_fac := :Numero_de_factura;
+    v_fec_fac := TO_DATE(:Fecha_de_factura, 'DD/MM/YYYY');
+    v_cod_cli := :Codigo_de_cliente;
+    v_fec_can := TO_DATE(:Fecha_de_cancelacion, 'DD/MM/YYYY');
     v_est_fac := :Estado_de_factura;
-    v_cod_ven := :Código_de_vendedor;
+    v_cod_ven := :Codigo_de_vendedor;
     v_por_jgv := :Porcentaje_JGV;
     -- Validación de datos obligatorios
     IF v_num_fac IS NULL OR v_fec_fac IS NULL OR v_cod_cli IS NULL OR v_fec_can IS NULL OR v_est_fac IS NULL OR v_cod_ven IS NULL OR v_por_jgv IS NULL THEN
@@ -279,8 +279,8 @@ DECLARE
     e_dato_faltante EXCEPTION;
 BEGIN
     -- Asignación de valores (reemplazar por los datos reales)
-    v_num_fac := :Número_de_factura;
-    v_cod_pro := :Código_de_producto;
+    v_num_fac := :Numero_de_factura;
+    v_cod_pro := :Codigo_de_producto;
     v_can_ven := :Cantidad_vendida;
     v_pre_ven := :Precio_de_venta;
     -- Validación de datos obligatorios
@@ -310,8 +310,8 @@ DECLARE
     v_can_det DETALLE_COMPRA.CAN_DET%TYPE;
     e_dato_faltante EXCEPTION;
 BEGIN
-    v_num_oco := :Número_de_orden_de_compra;
-    v_cod_pro := :Código_de_producto;
+    v_num_oco := :Numero_de_orden_de_compra;
+    v_cod_pro := :Codigo_de_producto;
     v_can_det := :Cantidad_comprada;
     IF v_num_oco IS NULL OR v_cod_pro IS NULL OR v_can_det IS NULL THEN
         -- Lanza excepción si falta un dato obligatorio
